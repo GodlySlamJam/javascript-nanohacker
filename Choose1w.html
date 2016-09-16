@@ -1,0 +1,86 @@
+<html>
+<body>
+<script>
+
+alert("Please use lowercase letters only")
+firstchoice();
+
+function firstchoice (){
+
+var choice1 = prompt(" You are on your way home from school. Then a mysterious older gentleman walks up to you and says, Would you like some candy? Do you take it or not?(yes or no)");
+if (choice1 == "yes"){
+  alert("You eat the candy and start feeling dizzy.");
+ alert("Your eyes start getting heavy...");
+  alert("You can barely lift your body as everything fades...");
+   alert("It get's darker...");
+    alert("And darker...");
+     alert("Untill everything goes black");
+      alert("...");
+       alert("....");
+        alert(".....");
+}else if(choice1 == "no"){
+alert("You keep walking while picking up your pace a little");
+secondchoice();
+}else{
+alert("I am afraid that is not a valid answer");
+firstchoice();
+}
+}
+
+
+
+function secondchoice (){
+
+var choice2 = prompt("You keep walking to find an abandoned dog and an abandoned cat. Which one do you take?");
+if (choice2 == "dog"){
+alert("You walk up to the dog and welcome it in to your arms. It comes and licks you as a sign of affection");
+alert("The cat will remember this...");
+thirdchoice();
+
+}else if(choice2 == "cat"){
+alert("You walk up to the dog and welcome it in to your arms. It comes and snuggles you you as a sign of affection");
+alert("The dog will remember this...")
+thirdchoice1();
+
+}else{
+alert("I am afraid that is not a valid answer");
+secondchoice();
+}
+}
+
+
+
+function thirdchoice1 (){
+
+var choice3 =prompt("You continue to walk with your cat. When suddenly THE DOG jumps out of a bush and starts to bite your cat. Do you run or help fight.(run or fight)" );
+if (choice3 == "fight"){
+alert("You attempt to help your cat, but the dog overpowers you both. It bites you in the head and now you and the cat are dying together. This is it.");
+}else if(choice3 == "run"){
+alert("You run leaving your cat to fend for themself.");
+
+}else{
+alert("I am afraid that is not a valid answer");
+thirdchoice1();
+}
+}
+
+
+
+function thirdchoice (){
+
+var choice3 =prompt("You continue to walk with your dog. When suddenly THE CAT jumps out of a bush and starts to scratch and bite your dog. Do you run or help fight." );
+if (choice3 == "fight"){
+alert("You attempt to help your dog, but the cat overpowers you both. It scratches you in the head and now you and the dog are dying together. This is it.");
+}else if(choice3 == "run"){
+alert("You run leaving your dog to fend for themself.");
+
+}else{
+alert("I am afraid that is not a valid answer");
+thirdchoice();
+}
+}
+
+
+</script>
+</body>
+</html>
