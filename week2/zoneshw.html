@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <script>
+  alert("You have been hired to hunt a monster. There are 4 zones. The sky, the jungle, the ocean, the housing district.")
+  zoneselect();
+
+  //zone select
+
+    function zoneselect(){
+    var Choose = prompt("Choose a zone to search next. (sky, jungle, ocean, housing)");
+    if (Choose === "jungle"){
+      monster1();
+      jungle();
+    }else if (Choose === "ocean"){
+      monster1();
+      ocean();
+    }else if (Choose === "housing"){
+      monster1();
+      housing();
+    }else if (Choose === "sky"){
+      monster1();
+      sky();
+    }else{
+      alert("That is not a valid answer.");
+      zoneselect();
+    }
+  }
+
+
+//monster randomizer
+
+  function monster1() {
+    return  console.log (Math.floor(4*Math.random()+1));
+  }
+
+//code for each zone
+
+  function jungle(){
+    if (monster1() === 4){
+      alert("You have finally found the monster. It notices you and runs up to attack you.");
+      monsterA();
+    }else{
+      alert("You search through the jungle district to no result.");
+      zoneselect();
+    }
+  }
+
+  function sky(){
+    if (monster1() === 4){
+      alert("You have finally found the monster. It notices you and runs up to attack you.");
+      monsterA();
+    }else{
+      alert("You search through the city in the sky to no result.");
+      zoneselect();
+    }
+  }
+
+  function ocean(){
+    if (monster1() === 4){
+      alert("You have finally found the monster. It notices you and runs up to attack you.");
+      monsterA();
+    }else{
+      alert("You search through the ocean district to no result.");
+      zoneselect();
+    }
+  }
+
+  function housing(){
+    if (monster1() === 4){
+      alert("You have finally found the monster. It notices you and runs up to attack you.");
+      monsterA();
+    }else{
+      alert("You search through the housing district to no result.");
+      zoneselect();
+    }
+  }
+
+//zone select
+
+  function zoneselect(){
+  var Choose = prompt("Choose a zone to search next");
+  if (Choose === "jungle"){
+    monster1();
+    jungle();
+  }else if (Choose === "ocean"){
+    monster1();
+    ocean();
+  }else if (Choose === "housing"){
+    monster1();
+    housing();
+  }else if (Choose === "sky"){
+    monster1();
+    sky();
+  }else{
+    alert("That is not a valid answer.");
+    zoneselect();
+  }
+}
+
+  function monsterA(){
+    var combat = prompt("The monster stands hulking in front of you. Do you attack using magic or a sword. Or do you defend?");
+
+    if (combat == "attack"){
+      alert("You attack using a mighty overhead slash")
+      return console.log(monsterH-5);
+      monsterA()
+    }else{
+      alert("That is not a valid answer")
+      monsterA();
+    }
+  }
+
+ var monsterH = 20
+ if (monsterh <= 0){
+   alert("After a hard battle you finally defeated the beast. Thanks for playing")
+
+ }
+
+var playerH = 15
+
+
+
+  </script>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SHELL GAME</title>
+  </head>
+  <body>
+    <script>
+      // return a random number between 0 and 2
+      function generateRandomShell() {
+        return Math.floor(3 * Math.random() + 1);
+      }
+      // 1. ask player which shell
+      var shellChoice = prompt("What shell is it in: 1, 2, or 3?");
+      shellChoice = parseInt(shellChoice);
+
+      // 2. generate random shell
+      var randomShell = generateRandomShell();
+      console.log("Random shell: " + randomShell.toString())
+      
+      // 3. test whether choice equals random shell
+      // 4. print relevant message
+      if (randomShell === shellChoice) {
+        alert("you win!");
+      } else {
+        alert("wrong")
+      }
+    </script>
+  </body>
+</html>

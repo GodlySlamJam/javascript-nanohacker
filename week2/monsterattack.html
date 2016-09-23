@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <script>
+monsterA();
+
+  var monsterH = 20;
+  function health(){
+  if (monsterH <= 0){
+    alert("After a hard battle you finally defeated the beast. Thanks for playing")
+  }else{
+    monsterA();
+  }
+
+}
+
+ var playerH = 15
+
+ function monsterA(){
+   var combat = prompt("The monster stands hulking in front of you. Do you attack using magic or a sword. Or do you defend?");
+
+   if (combat == "attack"){
+     alert("You attack using a mighty overhead slash")
+     return console.log(monsterH-5);
+     monsterA()
+   }else{
+     alert("That is not a valid answer")
+     monsterA();
+   }
+ }
+  </script>
+  <body>
+
+  </body>
+</html>
