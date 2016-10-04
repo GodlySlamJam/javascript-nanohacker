@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>STRING WIZARD! 🎩</title>
+    <meta charset="utf-8">
+    <style>
+      input { font-size: 32px; }
+      button { font-size: 32px; }
+    </style>
+    <script>
+      var clicked = 0;
+
+      function double() {
+        clicked++;
+
+        // 1. get the text out of the box
+        var inputBox = document.getElementById("box");
+        var text = inputBox.value;
+
+        // 2. double the text
+        text = text + " " + text;
+
+        // 3. set the value of the box to the doubled text
+        inputBox.value = text;
+
+        // update the count
+        var countP = document.getElementById("count");
+
+        countP.textContent = "You doubled the string " + clicked + " time(s)";
+      }
+
+      function Cap(){
+        var inputBox = document.getElementById("box");
+        var text = inputBox.value
+
+        text = text.toUpperCase();
+
+      inputBox.value = text
+      }
+
+      function Low(){
+        var inputBox = document.getElementById("box");
+        var text = inputBox.value
+
+        text = text.toLowerCase();
+
+      inputBox.value = text
+      }
+
+
+    </script>
+  </head>
+  <body>
+    <input type="text" id="box"></input>
+  <p>
+    <button id="doubleButton" onclick="double();">Double ⚡️</button>
+    <button id="Up" onclick="Cap();">Capitalize</button>
+    <button id="Up" onclick="Low();">Lowercase</button>
+
+  </p>
+    <p id="count"></p>
+  </body>
+</html>

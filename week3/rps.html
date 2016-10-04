@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+random()
+
+    var ask = prompt("How many rounds would you like to play")
+    parseInt(ask)
+
+
+    function random(){
+      return Math.floor(3*Math.random()+1);
+    }
+
+    var random = random();
+    var x = 0;
+
+
+while(x < ask){
+x++;
+document.write(x)
+
+      var rpsnum = prompt("rock, paper, scissor");
+
+
+    if(rpsnum === "rock"){
+      rock()
+    }else if(rpsnum === "paper"){
+      paper()
+    }else if(rpsnum === "scissor"){
+      scissor()
+    }
+
+    function rock(){
+      var rock = 2;
+      parseInt(rock);
+    if(rock <= random){
+      alert("Paper covers rock.");
+
+    }else if(rock >= random){
+      alert("rock beats scissor");
+
+    }else if(rock === random){
+      alert("rock can't beat rock.");
+
+    }else{
+      alert("That is not a valid answer");
+      rock()
+    }
+}
+
+    function paper(){
+      var paper = 2;
+      parseInt(paper);
+    if(paper < random){
+      alert("Paper covers rock.")
+    }else if(paper > random){
+      alert("scissor beats paper")
+    }else if(paper === random){
+      alert("paper can't beat paper.")
+    }else{
+      alert("That is not a valid answer")
+      paper()
+    }
+}
+
+    function scissor(){
+      var scissor = 2;
+      parseInt(scissor);
+    if(scissor < random){
+      alert("rock beats scissor");
+    }else if(scissor > random){
+      alert("scissor beats paper");
+    }else if(scissor === random){
+      alert("scissor can't cut a scissor.");
+    }else{
+      alert("That is not a valid answer");
+      scissor()
+    }
+}
+
+}
+
+
+
+    </script>
+  </body>
+</html>

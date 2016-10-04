@@ -3,6 +3,7 @@
   <head>
   </head>
   <script>
+      let zonecode = 1
   alert("You have been hired to hunt a monster. There are 4 zones. The sky, the jungle, the ocean, the housing district.")
   zoneselect();
 
@@ -32,15 +33,17 @@
 //monster randomizer
 
   function monster1() {
-    return  console.log (Math.floor(4*Math.random()+1));
+
+    return Math.floor(4*Math.random()+1);
   }
 
 //code for each zone
 
   function jungle(){
-    if (monster1() === 4){
+    var monsternumber=monster1()
+    console.log(monsternumber)
+    if (monsternumber == zonecode){
       alert("You have finally found the monster. It notices you and runs up to attack you.");
-      monsterA();
     }else{
       alert("You search through the jungle district to no result.");
       zoneselect();
@@ -48,9 +51,8 @@
   }
 
   function sky(){
-    if (monster1() === 4){
+    if (monster1() === 1){
       alert("You have finally found the monster. It notices you and runs up to attack you.");
-      monsterA();
     }else{
       alert("You search through the city in the sky to no result.");
       zoneselect();
@@ -58,9 +60,8 @@
   }
 
   function ocean(){
-    if (monster1() === 4){
+    if (monster1() === 1){
       alert("You have finally found the monster. It notices you and runs up to attack you.");
-      monsterA();
     }else{
       alert("You search through the ocean district to no result.");
       zoneselect();
@@ -68,9 +69,9 @@
   }
 
   function housing(){
-    if (monster1() === 4){
+    if (monster1() === 1){
+
       alert("You have finally found the monster. It notices you and runs up to attack you.");
-      monsterA();
     }else{
       alert("You search through the housing district to no result.");
       zoneselect();
@@ -100,27 +101,9 @@
 }
 
   function monsterA(){
-    var combat = prompt("The monster stands hulking in front of you. Do you attack using magic or a sword. Or do you defend?");
+    var combat = prompt("You have finally found the monster. It stands there hulking over you. You pull out your musket and aim carefully. You pulled the trigger. Another inocent being has been killed,");
 
-    if (combat == "attack"){
-      alert("You attack using a mighty overhead slash")
-      return console.log(monsterH-5);
-      monsterA()
-    }else{
-      alert("That is not a valid answer")
-      monsterA();
-    }
   }
-
- var monsterH = 20
- if (monsterh <= 0){
-   alert("After a hard battle you finally defeated the beast. Thanks for playing")
-
- }
-
-var playerH = 15
-
-
 
   </script>
   <body>

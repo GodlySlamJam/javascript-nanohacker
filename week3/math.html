@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    math();
+
+    function math(){
+      var num1 = prompt("Put in a number")
+      var num2 = prompt("Put in a second number")
+      var num3
+      num1 = parseInt(num1);
+      num2 = parseInt(num2);
+
+      var math = prompt("What form of math would you like to use")
+
+      if(math === "multiply"){
+        num3 = num1 * num2
+        alert(num3);
+
+      }else if(math === "divide"){
+      num3 = num1/num2
+      alert(num3);
+
+    }else if(math === "bigger/smaller then"){
+      num3 = num1 < num2
+        alert(num3);
+
+    }else if(math === "add"){
+      num3 = num1 + num2
+      alert(num3);
+
+    }else if(math === "subtract"){
+    num3 = num1 - num2
+    alert("num3")
+
+    }else{alert("That is not a valid answer")
+    math();
+    }
+    }
+
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

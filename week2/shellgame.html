@@ -5,6 +5,35 @@
   </head>
   <body>
     <script>
+
+        var ask = prompt("How many rounds would you like to play")
+        parseInt(ask)
+
+
+        function random(){
+          return Math.floor(3*Math.random()+1);
+        }
+
+        var random = random();
+        var x = 0;
+
+
+    while(ask = x){
+    x++;
+    Shell()
+    document.write(x)
+
+        function Shell(){
+          var Shellnum = prompt("Is it under shell 1,2,3")
+          parseInt(Shellnum)
+        }if(random === Shellnum){
+          alert("You win")
+        }else{
+          alert("You lose")
+        }
+    }
+
+
       // return a random number between 0 and 2
       function generateRandomShell() {
         return Math.floor(3 * Math.random() + 1);
@@ -15,8 +44,9 @@
 
       // 2. generate random shell
       var randomShell = generateRandomShell();
+
       console.log("Random shell: " + randomShell.toString())
-      
+
       // 3. test whether choice equals random shell
       // 4. print relevant message
       if (randomShell === shellChoice) {

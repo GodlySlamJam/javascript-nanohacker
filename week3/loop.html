@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+    var ask = prompt("How many rounds would you like to play")
+    parseInt(ask)
+
+
+    function random(){
+      return Math.floor(3*Math.random()+1);
+    }
+
+    var random = random();
+    var x = 0;
+
+
+while(x < ask){
+x++;
+document.write(x)
+
+      var Shellnum = prompt("Is it under shell 1,2,3")
+      var Shellnum = parseInt(Shellnum);
+
+    if(Shellnum == random){
+      alert("You win")
+    }else{
+      alert("You lose")
+    }
+}
+
+
+
+    </script>
+  </body>
+</html>

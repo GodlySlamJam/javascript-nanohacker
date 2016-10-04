@@ -3,32 +3,37 @@
   <head>
   </head>
   <script>
+let monsterH = 20
+let playerH = 15
+
 monsterA();
 
-  var monsterH = 20;
+
   function health(){
   if (monsterH <= 0){
     alert("After a hard battle you finally defeated the beast. Thanks for playing")
   }else{
     monsterA();
   }
-
 }
-
- var playerH = 15
 
  function monsterA(){
    var combat = prompt("The monster stands hulking in front of you. Do you attack using magic or a sword. Or do you defend?");
 
    if (combat == "attack"){
      alert("You attack using a mighty overhead slash")
-     return console.log(monsterH-5);
-     monsterA()
+     monsterH = monsterH - 5;
+     return monsterH
+     playerH = playerH - 5;
+     return playerH
+     health();
    }else{
      alert("That is not a valid answer")
      monsterA();
    }
  }
+
+
   </script>
   <body>
 
