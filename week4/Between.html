@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    function random(){
+
+    var input = document.getElementById("input")
+
+    input = input.value
+
+    input = parseInt(input);
+
+    console.log(input)
+
+    var computer = Math.floor(10*Math.random()+1);
+
+    console.log(computer)
+
+    if(input === computer){
+      document.write("You Win!");
+
+    }else{
+      document.write("You Lose!")
+
+    }
+
+
+}
+    </script>
+  </head>
+  <body>
+<p><h4>Put in a number between 1 and 10. Then click to check to see if you guessed right.</h4></p>
+    <input id="input" placeholder="Number">
+
+    <button onclick="random()">Check</button>
+
+  </body>
+</html>

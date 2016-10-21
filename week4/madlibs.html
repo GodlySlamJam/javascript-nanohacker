@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+
+function MadLibs(){
+
+        var noun1 = document.getElementById("noun1")
+        var noun1 = noun1.value
+
+        var adj1 = document.getElementById("adj1")
+        var adj1 = adj1.value
+
+        var activity1 = document.getElementById("activity1")
+        var activity1 = activity1.value
+
+        var disgusting1 = document.getElementById("disgusting1")
+        var disgusting1 = disgusting1.value
+
+        var emotion1 = document.getElementById("emotion1")
+        var emotion1 = emotion1.value
+
+        var place1 = document.getElementById("place1")
+        var place1 = place1.value
+
+        var day1 = document.getElementById("day1")
+        var day1 = day1.value
+
+
+
+
+        document.write("Once upon a time there was a" + " " + noun1 +
+        ". This " + noun1 + " was a very " + adj1 + noun1 +". The " + noun1 +
+         " had decided it was going to " + activity1 + ". During the" + activity1 +
+          ", " + noun1 + " had " + disgusting1 + ". It was then very " + emotion1 +
+       " that this happened to them. " + noun1 + " decided to leave too " + place1 +
+       " where " + noun1 + " was never seen again... Untill " + day1 + ".");
+}
+
+    </script>
+  </head>
+  <body>
+
+<p>
+    <input id="noun1" placeholder="Noun"></input>
+</p><p>
+    <input id="adj1" placeholder="Adjective"></input>
+</p><p>
+    <input id="activity1" placeholder="An activity"></input>
+</p><p>
+    <input id="disgusting1" placeholder="Something disgusting"></input>
+</p><p>
+    <input id="emotion1" placeholder="Emotion"></input>
+</p><p>
+    <input id="place1" placeholder="Place"></input>
+</p><p>
+    <input id="day1" placeholder="Day of the week"></input>
+</p>
+    <button id="libs" onclick="MadLibs()">Finish</button>
+  </body>
+</html>

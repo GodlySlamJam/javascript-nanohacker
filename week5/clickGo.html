@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+
+    function go() {
+      // 1. grab name
+
+        var name = document.getElementById("name")
+        var name = name.value
+        console.log(name);
+
+      // 2.stuff it in the paragraph
+      var Par = document.getElementById("Par")
+
+     Par.textContent = "hi " + name
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="go()">GO!</button>
+
+    <input placeholder="name" id="name"></input>
+    <p id="Par"></p>
+  </body>
+</html>
