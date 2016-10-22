@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    <script>
+
+
+    function start(){
+      Crafty.init();
+
+    var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
+    var platform = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+
+    platform.attr({x:0, y:600, w:1340, h:10,})
+    platform.color("Red");
+
+
+
+    player.attr({x:0, y:50, w:50, h:50,})
+    player.color("Green");
+    player.twoway(600, 500);
+    player.gravity("Platform");
+
+
+Fall();
+  }
+
+  function Fall() {
+    var where = Math.floor(1+ Math.random() *8);
+    where = parseInt(where)
+
+    var goal = Crafty.e("2D, DOM, Color, Collision, Solid, Gravity")
+    goal.color("Green");
+    goal.onHit("Player", collision);
+    goal.gravity("Player");
+
+
+    if(where === 1){
+    goal.attr({x:0, y:0, w:167, h:10,})
+
+    }else if (where === 2) {
+      goal.attr({x:167, y:0, w:167, h:10,})
+
+    }else if (where === 3) {
+      goal.attr({x:334, y:0, w:167, h:10,})
+
+    }else if (where === 4) {
+      goal.attr({x:501, y:0, w:167, h:10,})
+
+    }else if (where === 5) {
+      goal.attr({x:668, y:0, w:167, h:10,})
+
+    }else if (where === 6) {
+      goal.attr({x:835, y:0, w:167, h:10,})
+
+    }else if (where === 7) {
+      goal.attr({x:1002, y:0, w:167, h:10,})
+
+    }else if (where === 8) {
+      goal.attr({x:1169, y:0, w:167, h:10,})
+
+    }
+          window.setTimeout(Fall(), 1000);
+  }
+
+  function collision(){
+    alert("You lose");
+  }
+
+
+window.onload = start;
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

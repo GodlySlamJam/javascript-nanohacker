@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    <script>
+
+    function start(){
+      Crafty.init();
+
+    var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
+    var player1 = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
+
+    var platformr1 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platformr2 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+    var platformid = Crafty.e("DOM, Color, Collision, Solid, Platform")
+
+    var platforml1 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platforml2 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+    platformr1.attr({x:0, y:100, w:200, h:10,})
+    platformr1.color("Red");
+
+    platformr2.attr({x:200, y:200, w:200, h:10,})
+    platformr2.color("Red");
+
+
+
+    platformid.attr({x:600, y:0, w:20, h:1000,})
+    platformid.color("Red");
+
+
+
+    platforml1.attr({x:1200, y:100, w:200, h:10,})
+    platforml1.color("Red");
+
+    platforml2.attr({x:1000, y:200, w:200, h:10,})
+    platforml2.color("Red");
+
+
+
+    player.attr({x:0, y:50, w:50, h:50,})
+    player.color("Green");
+    player.twoway(600, 500);
+    player.gravity("Platform");
+
+    player1.attr({x:1200, y:50, w:50, h:50,})
+    player1.color("Green");
+    player1.twoway(600, 500);
+    player1.gravity("Platform");
+
+  }
+
+
+window.onload = start;
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
