@@ -22,11 +22,10 @@
     player.twoway(600, 500);
     player.gravity("Platform");
 
+var x = 0
+x++;
 
-Fall();
-  }
-
-  function Fall() {
+  while(x > 0) {
     var where = Math.floor(1+ Math.random() *8);
     where = parseInt(where)
 
@@ -61,7 +60,9 @@ Fall();
       goal.attr({x:1169, y:0, w:167, h:10,})
 
     }
-          window.setTimeout(Fall(), 1000);
+
+  }
+
   }
 
   function collision(){

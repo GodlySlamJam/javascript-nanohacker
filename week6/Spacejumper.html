@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    <script>
+    function collision() {
+      player.destroy();
+
+x++;
+}
+
+
+    function start(){
+      Crafty.init();
+
+    var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
+
+    var platform = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform1 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform2 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform3 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform4 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform5 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform6 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform7 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+
+    platform.attr({x:0, y:650, w:200, h:10,})
+    platform.color("Red");
+
+    platform1.attr({x:400, y:600, w:200, h:10,})
+    platform1.color("Red");
+
+    platform2.attr({x:950, y:580, w:100, h:10,})
+    platform2.color("Red");
+
+    platform3.attr({x:400, y:427, w:200, h:10,})
+    platform3.color("Red");
+
+    platform4.attr({x:800, y:300, w:200, h:10,})
+    platform4.color("Red");
+
+    platform5.attr({x:0, y:400, w:200, h:10,})
+    platform5.color("Red");
+
+    platform7.attr({x:1200, y:330, w:200, h:10,})
+    platform7.color("Red");
+
+
+
+
+
+
+    player.attr({x:0, y:500, w:50, h:50,})
+    player.color("Green");
+    player.twoway(600, 300);
+    player.gravity("Platform");
+
+    platform6.attr({x:1200, y:330, w:200, h:10,})
+    platform6.color("Red");
+    platform6.onHit("Player", collision);
+
+    var x = 0
+while(x < 2){
+  var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
+   player.attr({x:1200, y:300, w:50, h:50,})
+   x++;
+}while (x > 0) {
+  player.twoway(600, 1000);
+  player.gravity("Platform");
+  player.color("Green");
+
+}
+
+
+  }
+
+window.onload = start;
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
