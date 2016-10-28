@@ -4,14 +4,26 @@
     <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
     <script>
     function collision() {
-      player.destroy();
 
-x++;
+if(x === 0){
+  alert("You did it");
+  x++;
+  location.reload()
 }
 
-
+}
+function lose(){
+  if(y === 0){
+  alert("You lose")
+  location.reload()
+  y++;
+}
+}
+var y = 0
+var x = 0
     function start(){
       Crafty.init();
+
 
     var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
 
@@ -21,8 +33,10 @@ x++;
     var platform3 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
     var platform4 = Crafty.e("2D, DOM, Color, Collision, Solid")
     var platform5 = Crafty.e("2D, DOM, Color, Collision, Solid")
-    var platform6 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform6 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
     var platform7 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var goal = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var fall = Crafty.e("2D, DOM, Color, Collision, Solid")
 
 
     platform.attr({x:0, y:650, w:200, h:10,})
@@ -43,34 +57,27 @@ x++;
     platform5.attr({x:0, y:400, w:200, h:10,})
     platform5.color("Red");
 
-    platform7.attr({x:1200, y:330, w:200, h:10,})
-    platform7.color("Red");
 
 
 
 
 
-
-    player.attr({x:0, y:500, w:50, h:50,})
+    player.attr({x:0, y:500, w:50, h:50,});
     player.color("Green");
     player.twoway(600, 300);
     player.gravity("Platform");
 
-    platform6.attr({x:1200, y:330, w:200, h:10,})
+    platform6.attr({x:1200, y:330, w:200, h:10,});
     platform6.color("Red");
-    platform6.onHit("Player", collision);
 
-    var x = 0
-while(x < 2){
-  var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
-   player.attr({x:1200, y:300, w:50, h:50,})
-   x++;
-}while (x > 0) {
-  player.twoway(600, 1000);
-  player.gravity("Platform");
-  player.color("Green");
+    goal.attr({x:800, y:170, w:50, h:50,});
+    goal.color("Green");
+    goal.onHit("Player", collision);
 
-}
+    fall.attr({x:0, y:700, w:1400, h:10,});
+    fall.color("Green");
+    fall.onHit("Player", lose);
+
 
 
   }
