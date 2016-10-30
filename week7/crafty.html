@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Images</title>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  </head>
+  <body>
+    <script>
+      function start() {
+        Crafty.init()
+
+        Crafty.audio.add("ow", "hadouken.mp3")
+
+        var player = Crafty.e("2D, DOM, Color, Image, Fourway, Bern, Player, Solid, Collision")
+        var clinton = Crafty.e("2D, DOM, Color, Image, Mouse, Click,  Solid, Collision")
+
+      player.attr({x:100, y:100, w:0, h:0})
+      player.color("Blue")
+      player.fourway(1000)
+      player.image("berniesanders.jpg")
+
+      clinton.image("maxresdefault.jpg")
+      clinton.attr({x:200, y:200, w:0, h:0})
+      clinton.bind("Click", Why)
+      clinton.onHit("Player", Why)
+
+      function Why(){
+        if(!Crafty.audio.isPlaying("ow")){
+          Crafty.audio.play("ow")
+        }
+    }
+  }
+
+
+
+      window.onload = start;
+    </script>
+  </body>
+</html>

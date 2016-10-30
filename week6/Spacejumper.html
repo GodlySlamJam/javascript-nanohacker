@@ -2,20 +2,30 @@
 <html>
   <head>
     <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    <style>
+    #Stage{
+      height: 1000px;
+      width:500px;
+    }
+    </style>
+  </head>
+  <body>
+
+    <!--<div id="Stage"></div>-->
     <script>
     function collision() {
 
 if(x === 0){
   alert("You did it");
   x++;
-  location.reload()
+  location.reload();
 }
 
 }
 function lose(){
   if(y === 0){
   alert("You lose")
-  location.reload()
+  location.reload();
   y++;
 }
 }
@@ -24,40 +34,44 @@ var x = 0
     function start(){
       Crafty.init();
 
+      Crafty.defineScene("First", function(){
 
     var player = Crafty.e("2D, DOM, Color, Twoway, Gravity, Platform, Collision, Solid, Player")
 
     var platform = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
-    var platform1 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platform1 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
     var platform2 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
     var platform3 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
-    var platform4 = Crafty.e("2D, DOM, Color, Collision, Solid")
-    var platform5 = Crafty.e("2D, DOM, Color, Collision, Solid")
-    var platform6 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
-    var platform7 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform4 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+    var platformf1 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platformf2 = Crafty.e("2D, DOM, Color, Collision, Solid")
+    var platformf3 = Crafty.e("2D, DOM, Color, Collision, Solid")
+
     var goal = Crafty.e("2D, DOM, Color, Collision, Solid")
     var fall = Crafty.e("2D, DOM, Color, Collision, Solid")
 
 
-    platform.attr({x:0, y:650, w:200, h:10,})
+    platform.attr({x:0, y:650, w:200, h:10,});
     platform.color("Red");
 
-    platform1.attr({x:400, y:600, w:200, h:10,})
+    platformf1.attr({x:400, y:600, w:200, h:10,});
+    platformf1.color("Red");
+
+    platform1.attr({x:950, y:580, w:100, h:10,});
     platform1.color("Red");
 
-    platform2.attr({x:950, y:580, w:100, h:10,})
+    platform2.attr({x:400, y:427, w:200, h:10,});
     platform2.color("Red");
 
-    platform3.attr({x:400, y:427, w:200, h:10,})
-    platform3.color("Red");
+    platformf2.attr({x:800, y:300, w:200, h:10,});
+    platformf2.color("Red");
 
-    platform4.attr({x:800, y:300, w:200, h:10,})
+    platformf3.attr({x:0, y:400, w:200, h:10,});
+    platformf3.color("Red");
+
+    platform4.attr({x:1200, y:330, w:200, h:10,});
     platform4.color("Red");
-
-    platform5.attr({x:0, y:400, w:200, h:10,})
-    platform5.color("Red");
-
-
 
 
 
@@ -67,9 +81,6 @@ var x = 0
     player.twoway(600, 300);
     player.gravity("Platform");
 
-    platform6.attr({x:1200, y:330, w:200, h:10,});
-    platform6.color("Red");
-
     goal.attr({x:800, y:170, w:50, h:50,});
     goal.color("Green");
     goal.onHit("Player", collision);
@@ -78,14 +89,45 @@ var x = 0
     fall.color("Green");
     fall.onHit("Player", lose);
 
+    player.bind("LandedOnGround", function(platform) {
+  if (platform === platform4) {
+    player.twoway(1000, 1000);
+  }
+});
 
+});
+
+  Crafty.defineScene("Second", function(){
+
+    var player = Crafty.e("2D, DOM, Color, Gravity, Twoway, Platform, Collision, Solid, Player")
+
+    var platform = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+
+    platform.color("Blue")
+    platform.attr({x:500, y:1000, h:10, w:100})
+
+    player.attr({y:700, x:500, h:50, w:50})
+    player.color("green");
+    player.twoway(600, 1000)
+    player.gravity("Platform")
+
+
+
+
+
+
+//Crafty.viewport.follow("Player", 0, 0);
+Crafty.viewport.zoom(500)
+  });
+
+
+
+Crafty.enterScene("Second");
 
   }
 
 window.onload = start;
     </script>
-  </head>
-  <body>
-
   </body>
 </html>
