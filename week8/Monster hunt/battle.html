@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+    #button{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #button1{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #button2{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #healthp{
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #healthm{
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+      bottom:20px;
+      position: absolute;
+    }
+    .container{
+      height: 500px;
+      width: 600px;
+      position: relative;
+    }
+    </style>
+
+  </head>
+  <body>
+
+
+
+
+<div>
+  <button id="button" onclick="playA()">attack</button>
+  <button id="button1" onclick="playH()">heal</button>
+  <button id="button2" onclick="playD()">defend</button>
+  <div id="healthp"></div>
+</div>
+<div class="container">
+<div id="healthm"></div>
+</div>
+<script>
+
+
+var healthp = 20
+healthp = parseInt(healthp);
+
+var healthpdisplay = document.getElementById("healthp");
+healthpdisplay.textContent = "Player health: " + healthp
+document.getElementById("healthp").style.visibility = "hidden";
+
+var healthm = 40
+healthm = parseInt(healthm);
+
+var healthmdisplay = document.getElementById("healthm");
+healthmdisplay.textContent = "Monster health: " +healthm
+document.getElementById("healthm").style.visibility = "hidden";
+
+
+document.getElementById("button").style.visibility = "hidden";
+document.getElementById("button1").style.visibility = "hidden";
+document.getElementById("button2").style.visibility = "hidden";
+
+
+
+
+function battle(){
+
+  healthpdisplay = document.getElementById("health");
+  healthpdisplay.textContent = "Player health: " + healthp
+
+  var healthmdisplay = document.getElementById("healthm");
+  healthmdisplay.textContent = "Monster health: " + healthm
+
+  if(healthp < 0){
+  alert("You died");
+
+  }else if(healthm < 0){
+  alert("You win");
+  }
+}
+
+
+
+function playA(){
+  healthm = healthm - 5
+  alert("You attack the monster");
+  monsA();
+}
+
+
+function playH(){
+  healthp = healthp + 5
+  alert("You heal yourself");
+  monsA();
+}
+
+
+function playD(){
+  var Def = Math.floor(3*Math.random()+1);
+  healthp = healthp + Def
+  alert("You Defend yourself");
+  monsA();
+}
+
+
+
+
+function monsA(){
+  var attack = Math.floor(4*Math.random()+1);
+
+  if(attack === 1){
+    healthm = healthm + 5
+    if(healthm < 30){
+      healthm = healthm - (healthm - 30)
+      alert("The monster heals");
+      battle();
+    }
+
+
+  }else if(attack === 2){
+    healthp = healthp - 5
+    alert("The monster attacks");
+battle();
+
+  }else if(attack === 3){
+    healthp = healthp - 5
+    alert("The monster attacks");
+battle();
+
+  }else if(attack === 3){
+    var defense = Math.floor(2*Math.random()+1);
+    healthm = 5 - defense
+    alert("The monster defends");
+    battle();
+
+  }
+}
+
+
+
+</script>
+
+
+  </body>
+</html>

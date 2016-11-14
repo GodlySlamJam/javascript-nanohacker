@@ -79,6 +79,7 @@ var x = 0
     player.color("Green");
     player.twoway(600, 300);
     player.gravity("Platform");
+    player.image("Super-Mario.png");
 
     goal.attr({x:800, y:170, w:50, h:50,});
     goal.color("Green");
@@ -98,18 +99,55 @@ var x = 0
 
   Crafty.defineScene("Second", function(){
 
-    var player = Crafty.e("2D, DOM, Color, Gravity, Twoway, Platform, Collision, Solid, Player")
+    var player = Crafty.e("2D, DOM, Color, Image, Gravity, Twoway, Platform, Collision, Solid, Player")
 
     var platform = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform1 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform2 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform3 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform4 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+    var platform5 = Crafty.e("2D, DOM, Color, Collision, Solid, Platform")
+
+    Crafty.audio.add("ow", "hadouken.mp3")
 
 
     platform.color("Blue")
-    platform.attr({x:500, y:1000, h:10, w:100})
+    platform.attr({x:0, y:700, h:10, w:100})
+platform.onHit("Player", Why)
 
-    player.attr({y:700, x:500, h:50, w:50})
-    player.color("green");
-    player.twoway(600, 1000)
-    player.gravity("Platform")
+    platform1.color("Blue")
+    platform1.attr({x:200, y:100, h:10, w:100})
+platform1.onHit("Player", Why)
+
+    platform2.color("Blue")
+    platform2.attr({x:400, y:1000, h:10, w:100})
+platform2.onHit("Player", Why)
+
+    platform3.color("Blue")
+    platform3.attr({x:600, y:1000, h:10, w:100})
+platform3.onHit("Player", Why)
+
+    platform4.color("Blue")
+    platform4.attr({x:800, y:200, h:10, w:100})
+platform4.onHit("Player", Why)
+
+    platform5.color("Blue")
+    platform5.attr({x:1000, y:1000, h:10, w:100})
+platform5.onHit("Player", Why)
+
+
+    player.attr({y:700, x:00, h:70, w:70})
+    player.twoway(600, 700);
+    player.gravity("Platform");
+    player.image("Super-Mario.png");
+
+
+
+  player.bind("LandedOnGround", function Why(){
+    if(!Crafty.audio.isPlaying("ow")){
+      Crafty.audio.play("ow")
+    }
+});
 
 
 
@@ -122,10 +160,8 @@ Crafty.viewport.zoom(500)
 
 
 
-Crafty.enterScene("Second");
-
-  }
-
+Crafty.enterScene("Second")
+}
 window.onload = start;
     </script>
   </body>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    <style>
+
+    #button{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #button1{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #button2{
+      width: 300px;
+      height:100px;
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #healthp{
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+    }
+
+    #healthm{
+      font-size: 50px;
+      font-family: sans-serif;
+      color: red;
+      bottom:20px;
+      position: absolute;
+    }
+    .container{
+      height: 500px;
+      width: 600px;
+      position: relative;
+    }
+    </style>    <style>
+
+        #button{
+          width: 300px;
+          height:100px;
+          font-size: 50px;
+          font-family: sans-serif;
+          color: red;
+        }
+
+        #button1{
+          width: 300px;
+          height:100px;
+          font-size: 50px;
+          font-family: sans-serif;
+          color: red;
+        }
+
+        #button2{
+          width: 300px;
+          height:100px;
+          font-size: 50px;
+          font-family: sans-serif;
+          color: red;
+        }
+
+        #healthp{
+          font-size: 50px;
+          font-family: sans-serif;
+          color: red;
+        }
+
+        #healthm{
+          font-size: 50px;
+          font-family: sans-serif;
+          color: red;
+          bottom:20px;
+          position: absolute;
+        }
+        .container{
+          height: 500px;
+          width: 600px;
+          position: relative;
+        }
+        </style>    <style>
+
+            #button{
+              width: 300px;
+              height:100px;
+              font-size: 50px;
+              font-family: sans-serif;
+              color: red;
+              z-index: -1;
+            }
+
+            #button1{
+              width: 300px;
+              height:100px;
+              font-size: 50px;
+              font-family: sans-serif;
+              color: red;
+              z-index: -1;
+            }
+
+            #button2{
+              width: 300px;
+              height:100px;
+              font-size: 50px;
+              font-family: sans-serif;
+              color: red;
+              z-index: -1;
+            }
+
+            #healthp{
+              font-size: 50px;
+              font-family: sans-serif;
+              color: red;
+              z-index: -1;
+            }
+
+            #healthm{
+              font-size: 50px;
+              font-family: sans-serif;
+              color: red;
+              bottom:20px;
+              position: absolute;
+              z-index: -1;
+            }
+            .container{
+              height: 500px;
+              width: 600px;
+              position: relative;
+              z-index: -1;
+            }
+            </style>
+</head>
+  <body>
+
+    <div>
+      <button id="button" onclick="playA()">attack</button>
+      <button id="button1" onclick="playH()">heal</button>
+      <button id="button2" onclick="playD()">defend</button>
+      <div id="healthp"></div>
+    </div>
+    <div class="container">
+    <div id="healthm"></div>
+    </div>
+
+
+    <script>
+
+    var pxplace = 100;
+    var pyplace = 100;
+
+
+function start(){
+    Crafty.init();
+
+
+
+
+var x;
+var height = 20
+var y;
+var width = 20
+
+//Crafty.viewport.zoom(500)
+
+
+  for(x = 0;x < height; x++){
+    for(y = 0;y < width;y++){
+      var Xplace = x * height
+      var Yplace = y * width
+      var tile = Crafty.e("2D, DOM, Color, Solid")
+      tile.color("blue")
+      tile.attr({h:20, w:20, x: Xplace, y :Yplace});
+
+      var random = Math.random()
+
+      if(random < 0.01){
+        var monster = Crafty.e("2D, DOM, Color, Collision, Solid, Platform, Image")
+      monster.color("green");
+        monster.attr({h:20, w:20, x:Xplace, y:Yplace});
+      }
+
+      if(random > 0.7){
+        var brick = Crafty.e("2D, DOM, Color, Collision, Solid, Platform, Image")
+      brick.image("Brick.png");
+        brick.attr({h:20, w:20, x:Xplace, y:Yplace});
+      }
+    }
+  }
+
+
+
+
+
+  for(x = 0;x < height; x++){
+    for(y = 0;y < width;y++){
+      var Xplace = x * height + 400
+      var Yplace = y * width
+      var tile = Crafty.e("2D, DOM, Color, Solid");
+      tile.color("blue");
+      tile.attr({h:20, w:20, x: Xplace, y :Yplace});
+
+      var random = Math.random()
+      if(random < 0.1){
+        var monster = Crafty.e("2D, DOM, Color, Collision, Solid, Platform, Image")
+      monster.color("green");
+        monster.attr({h:20, w:20, x:Xplace, y:Yplace});
+        monster.onHit("Player" , Show);
+      }
+
+      if(random < 0.25){
+        var brick = Crafty.e("2D, DOM, Color, Collision, Solid, Platform, Image")
+      brick.image("Brick.png");
+        brick.attr({h:20, w:20, x:Xplace, y:Yplace});
+      }
+    }
+  }
+  var player = Crafty.e("2D, DOM, Color, Fourway, Platform, Collision, Solid, Player, Image")
+
+  player.fourway()
+  player.color("green");
+  player.attr({w:20, h:20, y:pyplace, x:pxplace,});
+}
+
+
+    var healthp = 20
+    healthp = parseInt(healthp);
+
+    var healthpdisplay = document.getElementById("healthp");
+    healthpdisplay.textContent = "Player health: " + healthp
+    document.getElementById("healthp").style.display = "none";
+
+    var healthm = 40
+    healthm = parseInt(healthm);
+
+    var healthmdisplay = document.getElementById("healthm");
+    healthmdisplay.textContent = "Monster health: " +healthm
+    document.getElementById("healthm").style.display = "none";
+
+
+    document.getElementById("button").style.display = "none";
+    document.getElementById("button1").style.display = "none";
+    document.getElementById("button2").style.display = "none";
+
+
+    function battle(){
+
+      healthpdisplay = document.getElementById("healthp");
+      healthpdisplay.textContent = "Player health: " + healthp
+
+      healthmdisplay = document.getElementById("healthm");
+      healthmdisplay.textContent = "Monster health: " + healthm
+
+      if(healthp < 0){
+      alert("You died");
+      Hide();
+
+      }else if(healthm < 0){
+      alert("You win");
+      Hide();
+      }
+    }
+
+
+
+    function playA(){
+      healthm = healthm - 5
+      alert("You attack the monster");
+      monsA();
+    }
+
+
+    function playH(){
+      healthp = healthp + 5
+      alert("You heal yourself");
+      monsA();
+    }
+
+
+    function playD(){
+      var Def = Math.floor(3*Math.random()+1);
+      healthp = healthp + Def
+      alert("You Defend yourself");
+      monsA();
+    }
+
+
+
+
+    function monsA(){
+      var attack = Math.floor(4*Math.random()+1);
+
+      if(attack === 1){
+        healthm = healthm + 5
+        if(healthm < 30){
+          healthm = healthm - (healthm - 30)
+          alert("The monster heals");
+          battle();
+        }
+        battle();
+
+      }else if(attack === 2){
+        healthp = healthp - 5
+        alert("The monster attacks");
+    battle();
+
+      }else if(attack === 3){
+        healthp = healthp - 5
+        alert("The monster attacks");
+    battle();
+
+  }else if(attack === 4){
+        var defense = Math.floor(2*Math.random()+1);
+        healthm = 5 - defense
+        alert("The monster defends");
+        battle();
+
+      }
+    }
+
+    function Show(){
+      Craftstop();
+
+      document.getElementById("button").style.display = "inline-block";
+      document.getElementById("button1").style.display = "inline-block";
+      document.getElementById("button2").style.display = "inline-block";
+      document.getElementById("healthm").style.display = "inline-block";
+      document.getElementById("healthp").style.display = "inline-block";
+
+      healthp = 20;
+      healthm = 40;
+
+      healthmdisplay.textContent = "Monster health: " +healthm
+      healthpdisplay.textContent = "Player health: " + healthp
+    }
+
+    function Hide(){
+      document.getElementById("healthm").style.display = "none";
+      document.getElementById("button").style.display = "none";
+      document.getElementById("button1").style.display = "none";
+      document.getElementById("button2").style.display = "none";
+      document.getElementById("healthp").style.display = "none";
+
+      Craftstart();
+
+    }
+
+    function Craftstop(){
+      Crafty.stop()
+    }
+
+    function Craftstart(){
+      Crafty.init();
+
+      player.attr({w: 20, h:20, x:pxplace, y:pyplace})
+    }
+
+  window.onload = start;
+    </script>
+
+  </body>
+</html>
